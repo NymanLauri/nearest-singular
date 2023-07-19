@@ -48,9 +48,7 @@ A = A / P_norm;
 B = B / P_norm;
 
 problem.M = stiefelcomplexfactory(n, n, 2);
-
 problem.cost = @cost;
-
 % The code uses the Euclidean gradient. Projection to 
 % the tangent space of U(n) is handled automatically (see 
 % stiefelcomplexfactory documentation)
@@ -63,7 +61,7 @@ options.maxiter = maxiter;
 options.maxtime = timemax_seconds;
 options.verbosity = 2; % 2 = Default; 0 = No output; 
 
-[Q, xcost, info, options] = trustregions(problem, x0, options);
+[Q, xcost, info, ~] = trustregions(problem, x0, options);
 
 infotable = struct2table(info);
 distance = sqrt(infotable.cost);
@@ -125,11 +123,10 @@ function g = egrad(Q)
     g(:,:,1) = 2* L1 * M11' + 2* L0 * M01';
     g(:,:,2) = 2* M12' * L1 + 2* M02' * L0;
 
-
 end
 
-
 function H = ehess(Q, d)
+
     Q1 = Q(:,:,1);
     Q2 = Q(:,:,2);
     
