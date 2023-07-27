@@ -50,7 +50,7 @@ You can also specify the maximum amount of iterations, maximum amount of time an
     >> [S,T,distance,~,Q,~] = nearest_complex(A, B, maxiter, timemax_seconds, x0);
 
 
-In order to specify the minimal index of the output T x + S, use the function 'nearest_with_minimal_index':
+In order to specify the minimal index of the output T x + S, use the function `nearest_with_minimal_index`:
 
     >> min_index = 0;
     >> [S,T,distance,~,Q,~] = nearest_with_minimal_index(A, B, min_index);
@@ -67,3 +67,6 @@ In order to specify the minimal index of the output T x + S, use the function 'n
        0.0000 + 0.0000i  -2.5817 + 2.9456i   0.3045 + 0.2884i  -0.2515 + 0.2478i
        0.0000 - 0.0000i   0.0000 + 0.0000i  -0.2716 + 0.0589i   0.0241 + 0.4902i
        0.0000 + 0.0000i  -0.0000 - 0.0000i   0.0000 - 0.0000i  -0.5334 + 1.6781i
+
+
+The file `example6.1.mat` contains the computed minimum for Example 6.1. of the paper "A Riemannian optimization method to compute the nearest singular pencil". 
