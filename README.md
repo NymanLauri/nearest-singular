@@ -9,7 +9,7 @@ Example:
     >> rng(0); n = 4;
     >> A = randn(n) + randn(n)*1i; 
     >> B = randn(n) + randn(n)*1i;
-    >> [S,T,distance,~,Q,~] = nearest_complex(A, B);
+    >> [S,T,distance,~,Q,~] = nearest_singular(A, B);
 
 The distance between B x + A and the singular T x + S is
 
@@ -47,7 +47,7 @@ You can also specify the maximum amount of iterations, maximum amount of time an
     >> maxiter = 100;
     >> timemax_seconds = 100;
     >> x0 = eye(n); x0(:,:,2) = eye(n);
-    >> [S,T,distance,~,Q,~] = nearest_complex(A, B, maxiter, timemax_seconds, x0);
+    >> [S,T,distance,~,Q,~] = nearest_singular(A, B, maxiter, timemax_seconds, x0);
 
 
 In order to specify the minimal index of the output T x + S, use the function `nearest_with_minimal_index`:
