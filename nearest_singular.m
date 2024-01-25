@@ -60,7 +60,7 @@ problem.ehess = @ehess;
 options.tolgradnorm = 1e-10;
 options.maxiter = maxiter;
 options.maxtime = timemax_seconds;
-options.verbosity = 0; % 2 = Default; 0 = No output; 
+options.verbosity = 2; % 2 = Default; 0 = No output; 
 
 [Q, xcost, info, ~] = trustregions(problem, x0, options);
 
