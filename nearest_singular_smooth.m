@@ -19,7 +19,7 @@ function [S,T,distance,time_seconds,Q,infotable] = nearest_singular_smooth(A, B,
 %   alpha (scalar parameter)
 %       smoothing parameter; as alpha -> -inf, the objective function
 %       approaches the non-smoothed version; suggested range is 
-%       -1e5 < alpha < -1e4 (0/0 errors can occur when alpha < -1e-5)
+%       -1e20 < alpha < -1e4
 %
 % Output:
 %   S, T (matrix of size (n,n))
@@ -89,9 +89,6 @@ S(k,k) = 0;
 
 T = Q(:,:,1)'*T*Q(:,:,2)';
 S = Q(:,:,1)'*S*Q(:,:,2)';
-
-% % Squared distance to the singular pencil. Should be equal to xcost
-% assert(xcost -  (norm(B-T,'f')^2 + norm(A-S,'f')^2) < 1e-10)
 
 % Rescale back
 T = T*P_norm;
