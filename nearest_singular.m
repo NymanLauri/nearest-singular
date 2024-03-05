@@ -42,13 +42,17 @@ end
 if not(exist('x0', 'var'))
     x0 = [];
 end
+if isreal([A,B]) && isreal(x0)
+    problem.M = stiefelfactory(n, n, 2); 
+else
+    problem.M = stiefelcomplexfactory(n, n, 2); 
+end
 
 % Rescale the pencil to be of norm 100
 P_norm = norm([A B], 'f')*1e-2;
 A = A / P_norm;
 B = B / P_norm;
 
-problem.M = stiefelcomplexfactory(n, n, 2);
 problem.cost = @cost;
 % The code uses the Euclidean gradient. Projection to 
 % the tangent space of U(n) is handled automatically (see 
